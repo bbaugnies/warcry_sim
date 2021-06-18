@@ -248,7 +248,7 @@ function attachListeners() {
                             n = n * ncr(s_attacks, j) * ((7-s_crit)**j);
                             console.log(n);
                             n = n * ncr(attacks - i, k) * ((6 - Math.max(3, Math.min(5, 4 + toughness - strength))) ** k);
-                            console.log("ncr ", ncr(attacks - i, k))
+                            console.log("ncr ", ncr(attacks - i, k), " rest ", ((6 - Math.max(3, Math.min(5, 4 + toughness - strength))) ** k))
                             console.log(n);
                             n = n * ncr(s_attacks - j, l) * ((s_crit - s_hit) ** l);
                             console.log(n);
