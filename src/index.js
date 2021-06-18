@@ -239,34 +239,24 @@ function attachListeners() {
             for (var j = 0; j <= s_attacks; j++) {
                 for (var k = 0; k <= attacks - i; k++) {
                     for (var l = 0; l <= s_attacks - j; l ++){
-                        console.log(i*crit_damage + j*s_crit_damage + k*damage + l*s_damage);
                         if (i*crit_damage + j*s_crit_damage + k*damage + l*s_damage >= hitpoints) {
-                            console.log("kill");
-                            console.log(i, j, k, l);
                             var n = ncr(attacks, i);
-                            console.log(n);
                             n = n * ncr(s_attacks, j) * ((7-s_crit)**j);
-                            console.log("ncr ", ncr(s_attacks, j), " rest ", ((7-s_crit)**j));
-                            console.log(n);
                             n = n * ncr(attacks - i, k) * ((6 - Math.max(3, Math.min(5, 4 + toughness - strength))) ** k);
-                            console.log("ncr ", ncr(attacks - i, k), " rest ", ((6 - Math.max(3, Math.min(5, 4 + toughness - strength))) ** k));
-                            console.log(n);
                             n = n * ncr(s_attacks - j, l) * ((s_crit - s_hit) ** l);
-                            console.log("ncr ", ncr(s_attacks - j, l), " rest ", ((s_crit - s_hit) ** l));
-                            console.log(n);
                             n = n * ((5-(6 - Math.max(3, Math.min(5, 4 + toughness - strength)))) ** (attacks - i -k));
-                            console.log(n);
                             n = n * ((6 - (7-s_crit) - (s_crit - s_hit)) ** (s_attacks-j-l));
-                            console.log(n);
                             kills += n
                         }
                     }
                 }
             }
         }
-        console.log("kills:" + kills);
-        console.log("attacks:" + (Math.pow(6, attacks+s_attacks)));
-        document.getElementById("output").value = (kills/(Math.pow(6, (attacks+s_attacks))))*100;
+        avg = (1/6*crit_damage + (6-(Math.max(3, Math.min(5, 4 + toughness - strength))))/6*damage) * attacks;
+        avg += ((7-s_crit)/6 * s_crit_damage + (s_crit - s_hit)/6 * s_damage) * s_attacks;
+        var out = "Average dmg: " + avg + "\n";
+        var out += "Chance to kill: "+(kills/(Math.pow(6, (attacks+s_attacks))))*100;
+        document.getElementById("output").value = out;
     }
     
     document.querySelector('.simBtn')
