@@ -242,6 +242,7 @@ function attachListeners() {
                         console.log(i*crit_damage + j*s_crit_damage + k*damage + l*s_damage);
                         if (i*crit_damage + j*s_crit_damage + k*damage + l*s_damage >= hitpoints) {
                             console.log("kill");
+                            console.log(i, j, k, l);
                             var n = ncr(attacks, i);
                             console.log(n);
                             n = n * ncr(s_attacks, j) * ((7-s_crit)**j);
@@ -261,7 +262,7 @@ function attachListeners() {
             }
         }
         console.log("kills:" + kills);
-        console.log("attacks:" + (6**(attacks+s_attacks)));
+        console.log("attacks:" + (6**(1)));
         document.getElementById("output").value = (kills/(6**(attacks+s_attacks)))*100;
     }
     
