@@ -255,7 +255,7 @@ function attachListeners() {
         avg = (1/6*crit_damage + (6-(Math.max(3, Math.min(5, 4 + toughness - strength))))/6*damage) * attacks;
         avg += ((7-s_crit)/6 * s_crit_damage + (s_crit - s_hit)/6 * s_damage) * s_attacks;
         var out = "Average dmg: " + avg + "\n";
-        var out += "Chance to kill: "+(kills/(Math.pow(6, (attacks+s_attacks))))*100;
+        out += "Chance to kill: "+(kills/(Math.pow(6, (attacks+s_attacks))))*100;
         document.getElementById("output").value = out;
     }
     
