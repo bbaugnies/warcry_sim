@@ -262,7 +262,7 @@ function attachListeners() {
         }
         console.log(kills);
         console.log(attacks);
-        document.getElementById("output").value = kills/(6**(attacks+s_attacks))*100;
+        document.getElementById("output").value = (kills/(6**(attacks+s_attacks)))*100;
     }
     
     document.querySelector('.simBtn')
