@@ -239,13 +239,21 @@ function attachListeners() {
             for (var j = 0; j < s_attacks; j++) {
                 for (var k = 0; k < attacks - i; k++) {
                     for (var l = 0; l < s_attacks - j; l ++){
+                        console.log(i*crit_damage + j*s_crit_damage + k*damage + l*s_damage);
                         if (i*crit_damage + j*s_crit_damage + k*damage + l*s_damage >= hitpoints) {
+                            console.log("kill");
                             var n = ncr(attacks, i);
+                            console.log(n);
                             n = n * ncr(s_attacks, j) * ((7-s_crit)**j);
+                            console.log(n);
                             n = n * ncr(attacks - i, k) * ((6 - Math.max(3, Math.min(5, 4 + toughness - strength))) ** k);
+                            console.log(n);
                             n = n * nrc(s_attacks - j, l) * ((s_crit - s_hit) ** l);
+                            console.log(n);
                             n = n * ((6 - Math.max(3, Math.min(5, 4 + toughness - strength))) ** (attacks - i -k));
+                            console.log(n);
                             n = n * ((6 - (7-s_crit) - (s_crit - s_hit)) ** (s_attacks-j-l));
+                            console.log(n);
                             kills += n
                         }
                     }
