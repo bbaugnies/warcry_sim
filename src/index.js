@@ -203,41 +203,14 @@ function attachListeners() {
     userInputScreen.focus();
   }
 
-  const digitBtns = document.querySelectorAll('.digitBtn');
-  const operatorBtns = document.querySelectorAll('.operatorBtn');
 
-  if (!Array.from) {
-    for (let i = 0; i < digitBtns.length; i++) {
-      digitBtns[i].addEventListener("click", digitBtn);
+    function sim () {
+        let strength = document.getElementById("strength").value;
+        document.getElementById("output").value = "current strength is: " + strength
     }
-
-    for (let i = 0; i < operatorBtns.length; i++) {
-      operatorBtns[i].addEventListener("click", operatorBtn);
-    }
-  } else {
-    Array.from(digitBtns).forEach((btn) => {
-      btn.addEventListener("click", digitBtn);
-    });
-
-    Array.from(operatorBtns).forEach((btn) => {
-      btn.addEventListener("click", operatorBtn);
-    });
-  }
-
-  document.querySelector('.decimalPnt')
-    .addEventListener('click', decimalPntBtn);
-
-  document.querySelector('.calcBtn')
-    .addEventListener('click', calculate);
-
-  document.querySelector('.cancelBtn')
-    .addEventListener('click', cancel);
-
-  document.querySelector('.clearEntryBtn')
-    .addEventListener('click', clearEntry);
-
-  document.querySelector('.converter')
-    .addEventListener('click', convert);
+    
+    document.querySelector('.simBtn')
+        .addEventListener('click', sim);
 }
 // call attach event listeners function
 attachListeners();
