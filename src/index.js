@@ -253,7 +253,7 @@ function attachListeners() {
             }
         }
         console.log(kills);
-        console.log(attakcs);
+        console.log(attacks);
         document.getElementById("output").value = kills/(6**(attacks+s_attacks))*100;
     }
     
