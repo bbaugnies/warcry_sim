@@ -221,17 +221,17 @@ function attachListeners() {
     }
     
     function sim () {
-        var strength = document.getElementById("strength").value;
-        var attacks = document.getElementById("attacks").value;
-        var toughness = document.getElementById("toughness").value;
-        var hitpoints = document.getElementById("hitpoints").value;
-        var damage = document.getElementById("damage").value;
-        var crit_damage = document.getElementById("crit_damage").value;
-        var s_attacks = document.getElementById("s_attacks").value;
-        var s_hit = document.getElementById("s_hit").value;
-        var s_crit = document.getElementById("s_crit").value;
-        var s_damage = document.getElementById("s_damage").value;
-        var s_crit_damage = document.getElementById("s_crit_damage").value;
+        var strength = parseInt(document.getElementById("strength").value);
+        var attacks = parseInt(document.getElementById("attacks").value);
+        var toughness = parseInt(document.getElementById("toughness").value);
+        var hitpoints = parseInt(document.getElementById("hitpoints").value);
+        var damage = parseInt(document.getElementById("damage").value);
+        var crit_damage = parseInt(document.getElementById("crit_damage").value);
+        var s_attacks = parseInt(document.getElementById("s_attacks").value);
+        var s_hit = parseInt(document.getElementById("s_hit").value);
+        var s_crit = parseInt(document.getElementById("s_crit").value);
+        var s_damage = parseInt(document.getElementById("s_damage").value);
+        var s_crit_damage = parseInt(document.getElementById("s_crit_damage").value);
         
         var kills = 0;
         
@@ -248,7 +248,7 @@ function attachListeners() {
                             n = n * ncr(s_attacks, j) * ((7-s_crit)**j);
                             console.log(n);
                             n = n * ncr(attacks - i, k) * ((6 - Math.max(3, Math.min(5, 4 + toughness - strength))) ** k);
-                            console.log("ncr ", ncr(attacks - i -k))
+                            console.log("ncr ", ncr(attacks - i, k))
                             console.log(n);
                             n = n * ncr(s_attacks - j, l) * ((s_crit - s_hit) ** l);
                             console.log(n);
