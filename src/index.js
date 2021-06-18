@@ -248,6 +248,7 @@ function attachListeners() {
                             n = n * ncr(s_attacks, j) * ((7-s_crit)**j);
                             console.log(n);
                             n = n * ncr(attacks - i, k) * ((6 - Math.max(3, Math.min(5, 4 + toughness - strength))) ** k);
+                            console.log("ncr ", ncr(attacks - i -k))
                             console.log(n);
                             n = n * ncr(s_attacks - j, l) * ((s_crit - s_hit) ** l);
                             console.log(n);
@@ -262,7 +263,7 @@ function attachListeners() {
             }
         }
         console.log("kills:" + kills);
-        console.log("attacks:" + (Math.pow(6, attacks+s_attacks));
+        console.log("attacks:" + (Math.pow(6, attacks+s_attacks)));
         document.getElementById("output").value = (kills/(Math.pow(6, (attacks+s_attacks))))*100;
     }
     
